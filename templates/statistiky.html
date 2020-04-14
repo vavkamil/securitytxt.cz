@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>securitytxt.cz | security.txt</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='assets/css//main.css') }}" />
+		<link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}" />
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header">
+
+					<!-- Logo -->
+						<h1><a href="/">/.well-known/security.txt</a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="/">Domů</a></li>
+								<li><a href="/pridat-odkaz">Přidat odkaz</a></li>
+								<li><a href="/generator">Generátor</a></li>
+								<li class="current"><a href="/statistiky">Statistiky</a></li>
+								<li><a href="/faq">FAQ</a></li>
+								<li><a href="https://tools.ietf.org/html/draft-foudil-securitytxt-09" target="_blank">RFC</a></li>
+							</ul>
+						</nav>
+
+					<!-- Banner
+						<section id="banner">
+							<header>
+								<h2>Howdy. This is Dopetrope.</h2>
+								<p>A responsive template by HTML5 UP</p>
+							</header>
+						</section>
+					 -->
+
+					<br>
+
+					<!-- Intro 
+						<section id="intro" class="container">
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<section class="first">
+										<i class="icon solid featured fa-cog"></i>
+										<header>
+											<h2>Ipsum consequat</h2>
+										</header>
+										<p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="middle">
+										<i class="icon solid featured alt fa-bolt"></i>
+										<header>
+											<h2>Magna etiam dolor</h2>
+										</header>
+										<p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+									</section>
+								</div>
+								<div class="col-4 col-12-medium">
+									<section class="last">
+										<i class="icon solid featured alt2 fa-star"></i>
+										<header>
+											<h2>Tempus adipiscing</h2>
+										</header>
+										<p>Nisl amet dolor sit ipsum veroeros sed blandit consequat veroeros et magna tempus.</p>
+									</section>
+								</div>
+							</div>
+							<footer>
+								<ul class="actions">
+									<li><a href="/generator" class="button large">Generator</a></li>
+									<li><a href="/faq" class="button alt large">FAQ</a></li>
+								</ul>
+							</footer>
+						</section>
+				-->
+				</section>
+
+			<!-- Main -->
+				<section id="main">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+								<!-- Portfolio -->
+									<section>
+										<header class="major">
+											<h2>Statistiky</h2>
+										</header>
+										<center>
+											<ul class="actions">
+												<li><a href="#" target="_blank" class="button alt">Encryption</a></li>
+												<li><a href="#" target="_blank" class="button alt">Hiring</a></li>
+												<li><a href="#" target="_blank" class="button alt">Acknowledgments</a></li>
+												<li><a href="#" target="_blank" class="button alt">Policy</a></li>
+											</ul>
+										</center>
+										<center><em><strong>There is #{{count['count(id)']}} domains in the database.</strong></em></center>
+										<br>
+
+
+
+
+										<div class="row">
+										    {% for row in result %}
+												<div class="col-3 col-6-medium col-12-small">
+													<section class="box">
+														<header>
+															<h3><a href="https://{{ row.domain }}/.well-known/security.txt" target="_blank">{{ row.domain }}</a></h3>
+														</header>
+														<p>Some description here</p>
+														<footer>
+															<ul class="actions">
+																{% if row.encryption %} <li><a href="#" target="_blank" class="button alt">Encryption</a></li> {% endif %}
+																{% if row.hiring %} <li><a href="#" target="_blank" class="button alt">Hiring</a></li> {% endif %}
+																{% if row.acknowledgments %} <li><a href="#" target="_blank" class="button alt">Acknowledgments</a></li> {% endif %}
+																{% if row.policy %} <li><a href="#" target="_blank" class="button alt">Policy</a></li> {% endif %}
+															</ul>
+														</footer>
+													</section>
+												</div>
+										    {% endfor %}
+
+										</div>
+									</section>
+
+							</div>
+
+						</div>
+					</div>
+				</section>
+
+			<!-- Footer -->
+				<section id="footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-8 col-12-medium">
+								<section>
+									<header>
+										<h2>Credits to <a href="https://securitytxt.org/" target="_blank">securitytxt.org</a></h2>
+									</header>
+									<p>
+										<a href="https://www.zdrojak.cz/clanky/soubor-security-txt/" target="_blank">https://www.zdrojak.cz/clanky/soubor-security-txt/</a>
+										<br>
+										<a href="https://www.michalspacek.com/what-is-security.txt-and-why-you-should-have-one" target="_blank">https://www.michalspacek.com/what-is-security.txt-and-why-you-should-have-one</a></p>
+								</section>
+							</div>
+							<div class="col-4 col-12-medium">
+								<section>
+									<header>
+										<ul class="actions">
+											<li><a href="https://tools.ietf.org/html/draft-foudil-securitytxt-08" target="_blank" class="button">Read the latest Internet draft</a></li>
+										</ul>
+									</header>
+									<p>A Method for Web Security Policies<br>draft-foudil-securitytxt-08</p>
+									<footer>
+
+									</footer>
+								</section>
+							</div>
+							<!--
+							<div class="col-4 col-6-medium col-12-small">
+								<section>
+									<header>
+										<h2>Tempus consequat</h2>
+									</header>
+									<ul class="divided">
+										<li><a href="#">Lorem ipsum dolor sit amet sit veroeros</a></li>
+										<li><a href="#">Sed et blandit consequat sed tlorem blandit</a></li>
+										<li><a href="#">Adipiscing feugiat phasellus sed tempus</a></li>
+										<li><a href="#">Hendrerit tortor vitae mattis tempor sapien</a></li>
+										<li><a href="#">Sem feugiat sapien id suscipit magna felis nec</a></li>
+										<li><a href="#">Elit class aptent taciti sociosqu ad litora</a></li>
+									</ul>
+								</section>
+							</div>
+							<div class="col-4 col-6-medium col-12-small">
+								<section>
+									<header>
+										<h2>Ipsum et phasellus</h2>
+									</header>
+									<ul class="divided">
+										<li><a href="#">Lorem ipsum dolor sit amet sit veroeros</a></li>
+										<li><a href="#">Sed et blandit consequat sed tlorem blandit</a></li>
+										<li><a href="#">Adipiscing feugiat phasellus sed tempus</a></li>
+										<li><a href="#">Hendrerit tortor vitae mattis tempor sapien</a></li>
+										<li><a href="#">Sem feugiat sapien id suscipit magna felis nec</a></li>
+										<li><a href="#">Elit class aptent taciti sociosqu ad litora</a></li>
+									</ul>
+								</section>
+							</div>
+							<div class="col-4 col-12-medium">
+								<section>
+									<header>
+										<h2>Vitae tempor lorem</h2>
+									</header>
+									<ul class="social">
+										<li><a class="icon brands fa-facebook-f" href="#"><span class="label">Facebook</span></a></li>
+										<li><a class="icon brands fa-twitter" href="#"><span class="label">Twitter</span></a></li>
+										<li><a class="icon brands fa-dribbble" href="#"><span class="label">Dribbble</span></a></li>
+										<li><a class="icon brands fa-tumblr" href="#"><span class="label">Tumblr</span></a></li>
+										<li><a class="icon brands fa-linkedin-in" href="#"><span class="label">LinkedIn</span></a></li>
+									</ul>
+									<ul class="contact">
+										<li>
+											<h3>Address</h3>
+											<p>
+												Untitled Incorporated<br />
+												1234 Somewhere Road Suite<br />
+												Nashville, TN 00000-0000
+											</p>
+										</li>
+										<li>
+											<h3>Mail</h3>
+											<p><a href="#">someone@untitled.tld</a></p>
+										</li>
+										<li>
+											<h3>Phone</h3>
+											<p>(800) 000-0000</p>
+										</li>
+									</ul>
+								</section>
+							</div>
+						-->
+							<div class="col-12">
+
+								<!-- Copyright -->
+									<div id="copyright">
+										<ul class="links">
+											<li><strong>&#127279;</strong> Copyleft securitytxt.cz | Do Whatever You Want | Don't Be Evil</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+
+							</div>
+						</div>
+					</div>
+				</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
